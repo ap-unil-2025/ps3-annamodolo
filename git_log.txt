@@ -1,0 +1,5 @@
+bfc27de I've created hello_git.py and added my name in the print statement
+a333331 created the file hello_git.py
+a6aa127 added my name and date to README
+7bcb689 Add GitHub Classroom autograding configuration
+2dc2daa Initial commit
