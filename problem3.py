@@ -22,37 +22,25 @@ def get_numbers_from_user():
             numbers.append(number)
         except ValueError:
             print("Invalid input. Please enter a number or 'done'.")
-        return numbers
+    return numbers
 
 
 def analyze_numbers(numbers):
-     if not numbers:
+    if not numbers:
         return None
 
-     analysis = {}
-     
-     analysis["count"] = len(numbers)
-     analysis["sum"] = sum(numbers)
-     analysis["average"] = sum(numbers) / len(numbers)
-     analysis["minimum"] = min(numbers)
-     analysis["maximum"] = max(numbers)
-     even_count = sum(1 for n in numbers if n.is_integer() and int(n) % 2 == 0)
-     odd_count = sum(1 for n in numbers if n.is_integer() and int(n) % 2 !=0)
-     analysis["even_count"] = even_count
-     analysis["odd_count"] = odd_count
-    
-     return analysis
+    analysis = {}
+    analysis["count"] = len(numbers)
+    analysis["sum"] = sum(numbers)
+    analysis["average"] = sum(numbers) / len(numbers)
+    analysis["minimum"] = min(numbers)
+    analysis["maximum"] = max(numbers)
+    even_count = sum(1 for n in numbers if n.is_integer() and int(n) % 2 == 0)
+    odd_count = sum(1 for n in numbers if n.is_integer() and int(n) % 2 != 0)
+    analysis["even_count"] = even_count
+    analysis["odd_count"] = odd_count
 
-
-    # TODO: Calculate count
-    # TODO: Calculate sum
-    # TODO: Calculate average
-    # TODO: Find minimum
-    # TODO: Find maximum
-    # TODO: Count even numbers (hint: use modulo operator)
-    # TODO: Count odd numbers
-
-     return analysis
+    return analysis
 
 
 def display_analysis(analysis):
@@ -76,13 +64,6 @@ def display_analysis(analysis):
     print(f"Odd numbers: {analysis['odd_count']}")
 
 
-    # TODO: Display all analysis results in a nice format
-    # Example:
-    # Count: 5
-    # Sum: 25
-    # Average: 5.00
-    # etc.
-    pass
 
 
 def main():

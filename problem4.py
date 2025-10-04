@@ -15,8 +15,8 @@ It is widely used in web development, data science, and automation.
 Python's simple syntax makes it great for beginners.
 Many companies use Python for their projects."""
 
-   with open(filename, 'w') as f:
-        f.write(content)
+    with open(filename, 'w') as f:
+     f.write(content)
     print(f"Created {filename}")
 
 
