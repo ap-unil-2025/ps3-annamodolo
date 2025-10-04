@@ -17,7 +17,7 @@ def get_numbers_from_user():
         user_input = input("Enter a number (or 'done' to finish): ").strip().lower()
         if user_input == "done":
             break
-        try: 
+        try:
             number = float(user_input)
             numbers.append(number)
         except ValueError:
@@ -26,6 +26,7 @@ def get_numbers_from_user():
 
 
 def analyze_numbers(numbers):
+    "string"
     if not numbers:
         return None
 
@@ -35,6 +36,7 @@ def analyze_numbers(numbers):
     analysis["average"] = sum(numbers) / len(numbers)
     analysis["minimum"] = min(numbers)
     analysis["maximum"] = max(numbers)
+
     even_count = sum(1 for n in numbers if n.is_integer() and int(n) % 2 == 0)
     odd_count = sum(1 for n in numbers if n.is_integer() and int(n) % 2 != 0)
     analysis["even_count"] = even_count
