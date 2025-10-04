@@ -7,85 +7,98 @@ import random
 import string
 
 
-def generate_password(length=12, use_uppercase=True, use_lowercase=True,
-                     use_digits=True, use_special=True):
+def generate_password(length=12, use_uppercase=True, use_lowercase=True, use_digits=True, use_special=True):
     """
-    Generate a random password based on criteria.
-
-    Args:
-        length (int): Length of the password
-        use_uppercase (bool): Include uppercase letters
-        use_lowercase (bool): Include lowercase letters
-        use_digits (bool): Include digits
-        use_special (bool): Include special characters
-
-    Returns:
-        str: Generated password
+    Generate a random secure password based on the user's preferences.
+    Ensures at least one character of each selected type is included.
     """
-    characters = ""
+    if length < 4:
+        raise ValueError("Password length must be at least 4 characters.")
 
-    # TODO: Build character set based on parameters
-    # if use_lowercase:
-    #     characters += string.ascii_lowercase
-    # etc.
+    char_sets = []
+    password_chars = []
 
-    if not characters:
-        return "Error: No character types selected!"
+    if use_uppercase:
+        char_sets.append(string.ascii_uppercase)
+        password_chars.append(random.choice(string.ascii_uppercase))
+    if use_lowercase:
+        char_sets.append(string.ascii_lowercase)
+        password_chars.append(random.choice(string.ascii_lowercase))
+    if use_digits:
+        char_sets.append(string.digits)
+        password_chars.append(random.choice(string.digits))
+    if use_special:
+        char_sets.append(string.punctuation)
+        password_chars.append(random.choice(string.punctuation))
 
-    password = []
+    if not char_sets:
+        raise ValueError("At least one character type must be selected.")
 
-    # TODO: Ensure at least one character from each selected type
-    # This prevents passwords that don't meet the criteria
+    # Combine all chosen character sets
+    all_chars = ''.join(char_sets)
 
-    # TODO: Fill the rest of the password randomly
+    # Fill the rest of the password
+    while len(password_chars) < length:
+        password_chars.append(random.choice(all_chars))
 
-    # TODO: Shuffle the password list to randomize order
+    # Shuffle for randomness
+    random.shuffle(password_chars)
 
-    return ''.join(password)
+    return ''.join(password_chars)
+
 
 
 def password_strength(password):
     """
-    Rate password strength from 1-5.
-
-    Args:
-        password (str): Password to evaluate
-
-    Returns:
-        str: Strength rating
+    Evaluate password strength based on length and character diversity.
+    Returns a rating: Weak / Medium / Strong / Very Strong
     """
+    length = len(password)
     score = 0
 
-    # TODO: Add points for different criteria
-    # - Length >= 8: +1 point
-    # - Length >= 12: +1 point
-    # - Contains lowercase: +1 point
-    # - Contains uppercase: +1 point
-    # - Contains digits: +1 point
+    if any(c.islower() for c in password):
+        score += 1
+    if any(c.isupper() for c in password):
+        score += 1
+    if any(c.isdigit() for c in password):
+        score += 1
+    if any(c in string.punctuation for c in password):
+        score += 1
+    if length >= 12:
+        score += 1
+    if length >= 16:
+        score += 1
 
-    strength = ["Very Weak", "Weak", "Fair", "Good", "Strong", "Very Strong"]
-    return strength[min(score, 5)]
+    if score <= 2:
+        return "Weak"
+    elif score == 3:
+        return "Medium"
+    elif score == 4 or score == 5:
+        return "Strong"
+    else:
+        return "Very Strong"
+
 
 
 def main():
-    """Main function to run the password generator."""
     print("Password Generator")
     print("-" * 30)
 
-    # Get password length from user
-    length_input = input("Password length (default 12): ").strip()
-    length = int(length_input) if length_input else 12
+    # Ask user for password length
+    user_input = input("Password length (default 12): ").strip()
+    length = int(user_input) if user_input.isdigit() else 12
 
-    # Generate password
+    # Generate main password
     password = generate_password(length)
     print(f"\nGenerated Password: {password}")
     print(f"Strength: {password_strength(password)}")
 
-    # Generate alternative passwords
+    # Generate 3 alternative passwords
     print("\nAlternative passwords:")
-    for i in range(3):
+    for i in range(1, 4):
         alt_password = generate_password(length)
-        print(f"{i+1}. {alt_password} ({password_strength(alt_password)})")
+        strength = password_strength(alt_password)
+        print(f"{i}. {alt_password} ({strength})")
 
 
 if __name__ == "__main__":
