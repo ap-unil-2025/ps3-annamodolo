@@ -2,7 +2,7 @@
 Problem 4: File Word Counter
 Process text files and perform various analyses.
 """
-
+import string
 def create_sample_file(filename="sample.txt"):
     """
     Create a sample text file for testing.
@@ -15,8 +15,8 @@ It is widely used in web development, data science, and automation.
 Python's simple syntax makes it great for beginners.
 Many companies use Python for their projects."""
 
-    with open(filename, 'w') as f:
-     f.write(content)
+    with open(filename, 'w' , encoding='utf-8') as f:
+        f.write(content)
     print(f"Created {filename}")
 
 
@@ -24,7 +24,7 @@ def count_words(filename):
     """
     Count total words in the file.
     """
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         text = f.read()
     words = text.split()
     return len(words)
@@ -34,7 +34,7 @@ def count_lines(filename):
     """
     Count total lines in the file.
     """
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     return len(lines)
 
@@ -43,7 +43,7 @@ def count_characters(filename, include_spaces=True):
     Count characters in the file.
     If include_spaces is False, don't count spaces.
     """
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         text = f.read()
     if not include_spaces:
         text = text.replace(" ", "")
@@ -53,7 +53,7 @@ def find_longest_word(filename):
     """
     Find and return the longest word in the file.
     """
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         words = f.read().split()
     longest = max(words, key=len)
     return longest
@@ -65,9 +65,8 @@ def word_frequency(filename):
     Return a dictionary of word frequencies.
     Convert words to lowercase and remove punctuation.
     """
-    import string
 
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         text = f.read().lower()
 
     # Remove punctuation
@@ -105,11 +104,12 @@ def analyze_file(filename):
 
     except FileNotFoundError:
         print(f"Error: File '{filename}' not found!")
-    except Exception as e:
+    except ImportError as e:
         print(f"Error: {e}")
 
 
 def main():
+    """Main function to create and analyze text files."""
     # Create sample file
     create_sample_file()
 
@@ -117,10 +117,11 @@ def main():
     analyze_file("sample.txt")
 
     # Allow user to analyze their own file
-    print("\n" + "=" * 40)
+    print("\n" + "-" * 40)
     user_file = input("Enter a filename to analyze (or press Enter to skip): ").strip()
     if user_file:
         analyze_file(user_file)
+
 
 if __name__ == "__main__":
     main()
