@@ -1,5 +1,65 @@
-bfc27de I've created hello_git.py and added my name in the print statement
-a333331 created the file hello_git.py
-a6aa127 added my name and date to README
-7bcb689 Add GitHub Classroom autograding configuration
-2dc2daa Initial commit
+commit 0c01055db5f9890b7710fce4bc4ae72cddc4de7f
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Sat Oct 4 11:03:30 2025 +0000
+
+    I've completed the bonus exercise
+
+commit a6725749a50d43c06aafaac20d3644e4ffad50f5
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Sat Oct 4 10:52:48 2025 +0000
+
+    Solved the first 4 problems
+
+commit 7906cc79357b08cd3800a5f9b5eee0795f3aabdf
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Sat Oct 4 10:39:19 2025 +0000
+
+    Problem 4 added
+
+commit 2746cfa19e9492df3eb9cf54bd3b2bad7bc26338
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Fri Oct 3 10:01:12 2025 +0000
+
+    Problem 3
+
+commit a6c48812a41dc2723ce1d2c1d401011be43c6db5
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Fri Oct 3 09:36:22 2025 +0000
+
+    Problem 2 solved
+
+commit 1d802a08caa18bf88a632d278d57802b974f190f
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Fri Oct 3 09:16:31 2025 +0000
+
+    created new file git_log.txt
+
+commit bfc27de3b351b2fff7842cc075fc6a353a858e49
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Fri Oct 3 09:12:37 2025 +0000
+
+    I've created hello_git.py and added my name in the print statement
+
+commit a3333318ce31883bec68d0ee02bcd753a38e09ed
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Fri Oct 3 09:08:41 2025 +0000
+
+    created the file hello_git.py
+
+commit a6aa12728fdaa0c16e0397f9e44de6e452dc3b32
+Author: Anna Modolo <anna.modolo@unil.ch>
+Date:   Fri Oct 3 09:03:49 2025 +0000
+
+    added my name and date to README
+
+commit 7bcb689e6ec93cc64526a8c7be6547d031f5ef09
+Author: Anna Smirnova <anna.smirnova@unil.ch>
+Date:   Mon Sep 29 14:44:57 2025 +0200
+
+    Add GitHub Classroom autograding configuration
+
+commit 2dc2daa38eab9338834bf27a431ee90c92a89e2c
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Mon Sep 29 11:49:46 2025 +0000
+
+    Initial commit

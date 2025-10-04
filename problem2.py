@@ -40,13 +40,6 @@ def temperature_converter():
     except ValueError:
         print("Invalid input. Please enter a number.")
 
-    # TODO: Implement the interactive converter
-    # Remember to:
-    # - Get temperature value from user
-    # - Get unit (C or F) from user
-    # - Validate input
-    # - Perform conversion
-    # - Display result rounded to 2 decimal places
     
 
 
